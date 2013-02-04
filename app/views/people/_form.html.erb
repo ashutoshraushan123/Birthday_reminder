@@ -1,0 +1,80 @@
+ <label class="labelBig"><input id="r1" name="form" type="radio" value="1" />ADD EMPLOYEE DETAILS</label><br/>
+ 
+
+<%= simple_form_for @person, :html => { :multipart => true } do |f| %>
+
+  
+ 
+  <%= f.input :name %>
+  <%#= f.input :date ,:start_year => Date.today.year - 17,:end_year=>1970,
+  :order => [ :day, :month, :year] %>
+  <%= f.input :date ,:start_year => Date.today.year ,:end_year=>1970,
+  :order => [ :day, :month, :year] %>
+
+  <%#= f.input :dept, collection: @u, prompt: "Select department" %>
+
+  <p id="valid" class="text-error">  !!!Sorry,Invalid Email</p>
+  <%= f.input :email, :required =>'true' %>
+  <p id="valid_1" class="text-error">  !!!Sorry,Invalid Image format.Please mouseover help option</p>
+  <%= f.label :Image %>
+  <%= f.file_field :avatar  %>
+  <i href="#" id="blob" class="icon-info-sign" rel="popover" style="margin-top: 300px"></i><br/>
+
+ 
+<br/><br/>
+
+ <div>
+    <a href="#myModal" role="button" class="btn btn-mini"  data-toggle="modal">Select A Template</a>
+     
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+    <div>
+       <% @templates.each do |t| %> 
+
+      <input id="<%= t.id %>" name="template" type="radio" value="<%= t.id %>" />
+
+      Template 
+
+      <%= t.html.html_safe   %>
+
+      <p> <%= link_to 'Edit Template', edit_template_path(t) %> </p> 
+       
+    <% end %>
+
+    </div>
+    </div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+    </div>
+
+  </div><br/>
+  <%= f.submit "Add Employee", :class =>"btn btn-primary", :id => 'button' %>  
+<% end %>
+    
+<p>
+</p>
+<p>
+<div>
+ <label class="labelBig"><input id="r2" name="form" type="radio" value="2" />IMPORT EMPLOYEES DETAIL SHEET</label>
+</div>
+
+
+
+<%= form_for :dump, :url=>  import_csv_index_path, :html => { :multipart => true } do |f| %>
+
+ <p id="valid_2" class="text-error">  !!!Sorry,Invalid file format.Please mouseover help option</p>
+    <%= f.label :'Select an Excel File:'  %>
+    <%= f.file_field :file %>
+
+    <i href="#" id="blob_1" class="icon-info-sign" rel="popover" style="margin-top: 300px"></i><br/>
+
+    <%= submit_tag 'Submit' ,:id => 'submit',:class =>"btn btn-primary"%><br/><br/>
+  
+<% end -%>
+
+</p>
+

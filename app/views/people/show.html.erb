@@ -1,0 +1,34 @@
+
+<p>
+  <b>Name:</b>
+  <%= @person.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @person.date.strftime('%d-%b-%Y') %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @person.dept %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @person.email %>
+</p>
+<p>
+  <b>Template:</b>
+  <%= @person.template_id %>
+</p>
+
+<%#= image_tag @person.avatar.url %>
+<%#= image_tag @person.avatar.url(:medium) %>
+<%= image_tag @person.avatar.url(:thumb) %>
+
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', new_person_path %> |
+<%= link_to 'Home',people_path %>

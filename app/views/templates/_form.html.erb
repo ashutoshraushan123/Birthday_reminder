@@ -1,0 +1,11 @@
+
+<%= simple_form_for(@template) do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.cktext_area :html %> 
+  <%=  %> 
+  <%= f.submit "Save Template", :class => "btn btn-primary"  %>
+  <a href="<%=  templates_path %>" class="btn btn-danger">Cancel</a><br/><br/>
+ 
+<% end %>
+

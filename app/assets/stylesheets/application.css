@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require dataTables/src/demo_table_jui
+ *= require_tree .
+ */
+
+.simple_form label {
+  float: left;
+  width: 100px;
+ /* margin: 2px 40px;*/
+}
+
+.simple_form div.input {
+  margin-bottom: 10px;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 80px;
+}
+
+
+.simple_form .error {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+
+.navbar{
+  /*background-color: #307D7E;*/
+  background-color: #0b0baa;
+  width: 990px;
+  margin-left: -10px;
+  
+}
+.form_actions input{
+  margin-left: 0!important;
+} 
+.simple_form textarea{
+  width: 426px;
+}
+.h5 {
+    font-size: 14px;
+     font-weight: normal: ;
+}
+
+.leftMar{
+
+  margin: 2px 40px;
+}
+.labelBig{
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  border-bottom: #c2c2c2 1px solid;
+  margin: 0 0 9px;
+  padding: 0 0 9px;
+}

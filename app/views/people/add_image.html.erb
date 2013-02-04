@@ -1,0 +1,23 @@
+<div>
+	<a href="<%= people_path %>" class="btn btn-primary">Back</a>
+</div>
+
+<div>
+<p class="text-success"> Mail sent successfully...</p>
+</div>
+<div>
+<table>
+  <head>
+    <tr>
+      <th>To,</th>
+    </tr>
+ </head>
+ <body>
+    <% @people.each do |person| %>
+     <tr>
+      <td><%= person.email %></td>
+     </tr>
+   <% end %>
+ </body>
+  </table>
+</div>

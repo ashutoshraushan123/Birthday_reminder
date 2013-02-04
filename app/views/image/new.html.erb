@@ -1,0 +1,32 @@
+
+<label><h4><em>ADD IMAGES
+<i href="#" id="blob_2" class="icon-info-sign" rel="popover" style="margin-top: 300px"></i><em></h4></label>
+<%= form_tag(image_index_path, :multipart => true) do %>
+  <table class="table table-bordered" >
+  <head>
+    <tr>
+      <th><h4>NAME</h4></th>
+      <th><h4>DATE OF BIRTH</h4></th>
+      <th><h4> IMAGE UPLOADING</h4></th>
+      <th><h4>IMAGE</h4></th>
+
+    </tr>
+  </head>
+  <body>
+  <%#= form_tag(:controller => "image", :action => "create", :method=>"post") do %>
+
+    <% @people.each do |person| %>
+     <tr >
+      <td><%= person.name %></td>
+      <td><%= person.date %></td>
+      <td><%= file_field_tag :avatar ,:class => 'files', :name => person.id %></td>
+      <td><canvas class="images" width="100" height="100"></canvas></td>
+     </tr>
+   <% end %>
+  </body>
+  </table>
+  <div>
+    <%= submit_tag'Save' ,:class =>"btn btn-primary",:id=>'butn' %>
+   <a href="<%= people_path %>" class="btn btn-danger">Cancel</a><br/><br/>
+  </div>
+<% end %>

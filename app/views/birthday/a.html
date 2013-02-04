@@ -1,0 +1,46 @@
+<% @person.each do |person| %>
+
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.date %></td>
+    
+    <td><input id="<%= person.id %>"  type='file' class="imageUploader" /></td>
+    <td> <img id="image_<%= person.id %>" src="#" alt="Image" width="100" height="100"/></td>
+    
+    <%#= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </tr>
+  <% end %>
+
+
+
+
+
+
+
+
+ $('.imageUploader').change(function() {
+  var target_image = $(this).val();
+  $(this).parent('td').siblings('td.image_container').html(<img src="target_image"/>)
+  console.log(target_image)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $('.imageUploader').change(function() {
+  var target_image = $(this).val();
+  var target_id = $(this).attr('id');
+  $('#image_'+target_id).attr('src', target_image);
+  console.log(target_image);
+  console.log('#image_'+target_id);
+});

@@ -1,0 +1,12 @@
+
+<h2><strong><em>Birthday Reminder</em></strong></h2> 
+<img src="http://cdn.marketplaceimages.windowsphone.com/v8/images/533336ce-a729-4a8d-9ac1-    4ee60486ab60?imageType=ws_icon_large">
+
+ <table border='1'>
+  <% @notice.each do |e| %>
+   <tr>
+    <td> <%= e.name %></td>
+    <td> <%= image_tag e.avatar.url(:thumb) %></td> 
+   </tr>
+  <% end %>
+</table>

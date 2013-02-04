@@ -1,0 +1,30 @@
+ <table id="people" class="table table-bordered">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>Photo Url</th>
+    <th>Photo</th>
+
+  </tr>
+</thead>
+<tbody>
+<%# form_tag(:controller => "image", :action => "create", :method=>"post") do %>
+<%= form_tag('/image') do %>
+  <% @person.each do |person| %>
+   <tr>
+    <td><%= person.name %></td>
+    <td><%= person.date %></td>
+    <td><%= file_field_tag :avatar ,:class => 'files' %></td>
+    <td><canvas class="images" width="100" height="100"></canvas></td>
+   </tr>
+ <% end %>
+<div>
+  <%= submit_tag'Save' %>
+</div>
+
+<% end %>
+</tbody>
+
+</table> 
+

@@ -1,0 +1,56 @@
+<html>
+<head>
+<script type="text/javascript">
+
+</script>
+
+ </head>  
+
+<body>
+
+<h4><em>LISTED EMPLOYEES</em></h4> 
+
+  <div class="content">   
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li ><a href="<%= new_person_path %>">ADD EMPLOYEE</a></li>
+          <li><a href="<%= templates_path %>">TEMPLATES</a></li>
+          <li><a href="<%= new_image_path %>">ADD IMAGE</a></li>
+          <li><a href="<%= people_path(:format=> :xls) %>">EXCEL DOWNLOAD</a></li>
+          <li><a href="<%= find_birthday_path %>">BIRTHDAY MAIL</a></li>
+          <li><a href="<%= people_path %>">CALENDAR</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+ <table id="people" class="display" >
+  <thead>
+   <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+   </tr>
+  </thead>
+
+<tbody>
+
+<% @people.each do |person| %>
+
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.date.strftime('%d-%b-%Y') %></td>
+    <td><%= person.email %></td>
+    <td><%= link_to 'Show', person %></td>
+    <td><%= link_to 'Edit', edit_person_path(person) %></td>
+    <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  </head>
+
+  <body>
+  <%#= image_tag @user.avatar.url %>
+   <h1>Hi <%= @user.name %></h1>
+
+   <%= raw(ActiveRecord::Base::Template.find(@user.template_id).html) %>
+   
+   
+  </body>
+</html>

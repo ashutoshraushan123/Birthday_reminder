@@ -1,0 +1,132 @@
+@import "twitter/bootstrap/bootstrap";
+//body { padding-top: 40px; } 
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled bootstrap_and_overrides.css will not
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
+
+// Font Awesome
+@import "fontawesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #FF0000	;
+
+
+
+#person_date_3i, #person_date_1i, #person_date_2i{
+	width: 100px;
+}
+
+input[type= "text"]{
+	
+	padding: 5px 0;
+	
+}
+
+input[type= "email"],input[type= "password"]{
+ 
+  padding: 5px 0;
+  width: 300px;
+}
+
+.navbar .brand{
+	padding: 10px 20px 10px 50px;
+  color: #ffffff;
+}
+
+.navbar-inner{
+   height: 70px;
+  /*--background: #6cf; --*/
+  /*position: fixed;*/
+  /*top: 0px;*/
+  border:none!important;
+  /*background: #fff;*/
+  background-image: none!important;
+  background: none!important;
+  padding: 10px 0 0 0;
+  color: #FFFFFF;
+  display: inline;
+  /*clear:both;*/
+  /*width:898px;
+  z-index: 1;*/
+  /*margin: 0 auto;*/
+  
+  b-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0)!important;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0)!important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0)!important;
+
+  -webkit-border-radius: 0px!important;
+  -moz-border-radius:0px!important;
+  border-radius: 0px!important; 
+  backgeound-color: #45AEEA;
+}
+
+.navbar{
+  /*background-color: #307D7E;  color of twitter navbar*/
+  /*background-color: #005c9f;*/
+  
+  background-image: -moz-linear-gradient(center top , #005c9f, #005c9f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#45AEEA), to(#45AEEA));
+  background-image: -webkit-linear-gradient(top, #45AEEA, #45AEEA);
+  background-image: -o-linear-gradient(top, #45AEEA, #45AEEA);
+  background-image: linear-gradient(to bottom,#45AEEA, #45AEEA);
+  
+  background-repeat: repeat-x;
+  border: 1px solid #D4D4D4;
+  
+  -webkit-border-radius: 4px;
+  -moz-border-radius:4px;
+  border-radius: 4px; 
+  
+  b-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+.simple_form textarea{
+	width: 426px;
+}
+select{
+	padding: 5px 0;
+  width: 80px;
+}
+.form_actions input{
+  margin-left: 0!important;
+}	
+input[type="radio"], input[type="checkbox"] {
+    line-height: normal;
+    margin: 0 4px 0 0;
+}
+
+.navbar .nav > li > a {
+    color: #FFFFFF;
+    float: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+     font-size: 14px;
+}
+h2 {
+    font-size: 20.5px;
+}

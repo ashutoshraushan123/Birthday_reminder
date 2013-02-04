@@ -1,0 +1,7 @@
+
+<%= simple_form_for(@department) do |f| %>
+  <%#= f.error_notification %>
+<p id="valid_3" class="text-error">  !Can't be blank</p>
+  <%= f.input :dept %>
+  <%= f.submit "Add Department" ,:id => 'dept_submit'%>
+<% end %>
