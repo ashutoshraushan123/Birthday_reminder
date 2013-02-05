@@ -24,9 +24,12 @@ FILEFIELD = {}
 
  $('.files').change(function() {
     FILEFIELD = $(this)
-    
+    var target_id = $(this).val();
+    var p=$(FILEFIELD).attr('value');
     var pic = $(FILEFIELD).val()
+  
     console.log(pic)    
+     console.log(target_id) 
 
     if((!pic =="" && !pic.match(/(\.bmp|\.png|\.jpg|\.jpeg|\.gif)$/))){
 
