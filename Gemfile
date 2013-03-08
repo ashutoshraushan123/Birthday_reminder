@@ -8,6 +8,8 @@ gem 'rails', '3.2.9'
 gem 'mysql2'
 
 gem 'thin' 
+gem 'libv8', '~> 3.11.8'
+
 gem "spreadsheet", "~> 0.6.5.8"
 gem "to_xls", :git => "https://github.com/dblock/to_xls.git", :branch => "to-xls-on-models"
 
