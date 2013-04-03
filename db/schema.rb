@@ -44,20 +44,20 @@ ActiveRecord::Schema.define(:version => 20130130110531) do
     t.string   "name"
     t.date     "date"
     t.string   "email"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "template_id",         :default => "1"
+    t.integer  "template_id"
     t.string   "dept"
   end
 
   create_table "templates", :force => true do |t|
-    t.text     "html",       :limit => 16777215
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.string   "html"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
