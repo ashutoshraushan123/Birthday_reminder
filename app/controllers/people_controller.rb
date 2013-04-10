@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
     @templates = Template.all
     #logger.info "....................#{@templates.inspect}.........."
     @dept = Department.all
-
+    @team = Team.all
     @u=Array.new
      
      @dept.each do |d|
@@ -58,9 +58,8 @@ class PeopleController < ApplicationController
   def edit
     @person = Person.find(params[:id])
     @templates = Template.all
-
     @dept = Department.all
-
+    @team = Team.all
     @u=Array.new
      
      @dept.each do |d|
@@ -160,7 +159,20 @@ class PeopleController < ApplicationController
        end    
   end
 
-  
+   def team_count
+    @team_name=[]
+     @team =Team.where("depart=?",params[:dept])
+      #@team = Team.find_by_depart(params[:dept])
+      @team.each do|t|
+         
+        @team_name << t.team_name
+      end
+       #logger.info"DDDDDDDDDDDDDDDDDDDDDDd#{@team_name.inspect}"
+       respond_to do |format|
+         format.json{render json: @team.collect{|t| [t.id, t.team_name]}}
+       end
+      
+   end  
 
 
 end

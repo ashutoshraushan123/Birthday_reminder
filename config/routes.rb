@@ -2,8 +2,10 @@ BirthdayApp::Application.routes.draw do
  
 
 
-  resources :departments
+  resources :teams
 
+
+  resources :departments
 
   resources :templates
 
@@ -15,7 +17,11 @@ BirthdayApp::Application.routes.draw do
 
   devise_for :users
 
-  resources :people 
+  resources :people do
+    collection do
+       get :team_count 
+    end
+  end
      
      resources :image
     
@@ -95,7 +101,7 @@ BirthdayApp::Application.routes.draw do
   #match 'index' ,:to => "image#index"
   match 'find_birthday' ,:to => "people#find_birthday"
   
-   match "/people/calendar/:newdate" => "people#calendar" 
+  match "/people/calendar/:newdate" => "people#calendar" 
   #match 'photo_less' ,:to => "people#photo_less"
   match "/people/calendar/:newdate/department/:dept" => "department#index"
   

@@ -240,6 +240,7 @@ DEPENDENCIES
   rmagick
   roadie
   roo
+  rubyzip
   sass-rails (~> 3.2.3)
   simple_form
   spreadsheet (~> 0.6.5.8)

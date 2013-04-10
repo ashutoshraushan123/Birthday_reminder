@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
 
  #cts_as_authentic
-  attr_accessible :date, :email, :name, :avatar ,:template_id,:dept
+  attr_accessible :date, :email, :name, :avatar ,:template_id,:dept,:team_name
 
    
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
@@ -14,6 +14,7 @@ class Person < ActiveRecord::Base
  #validates_format_of :avatar,:with => /(\.bmp|\.png|\.jpg|\.jpeg|\.gif)$/
 
    belongs_to :department
+   belongs_to :team
 
 def self.to_csv(options = {})                               # For Exporting (CSV)
     CSV.generate(options) do |csv|

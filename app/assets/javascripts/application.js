@@ -174,7 +174,6 @@ $("#department_dept").focus(function() {
    $("#valid_3").hide();});
 
 
-
  $prev = null
     $('#calendar').fullCalendar({
         dayClick: function(date,allDay,jsEvent,view){
@@ -201,6 +200,35 @@ $("#department_dept").focus(function() {
           })
         }
     });
+
+
+  $("#person_dept").change(function(){
+
+     var dept =$(this).val();
+     var team =$("#person_team_name").val();
+     $("#person_team_name").html("");
+     console.log(dept); 
+
+      $.ajax({
+            url: '/people/team_count?dept=' + dept , type: 'get', dataType: 'json',
+            processData: false,
+            success: function(data) {
+               console.log(data);
+                if (data == "") {
+                   data ="No teams"
+                    $("#person_team_name").append( $('<option value="'+""+'">'+"No team"+'</option>'));
+                }
+                else {
+                    // $("#person_team_name").val(data);
+                     jQuery.each(data,function(i, v) {
+                     $('#person_team_name').append( $('<option value="'+ v[1] +'">'+v[1]+'</option>'));
+                     });
+                }
+            }
+        });
+   });
+
+
 
 
  });
