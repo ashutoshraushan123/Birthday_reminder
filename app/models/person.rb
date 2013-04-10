@@ -31,7 +31,9 @@ def as_xls(options = {}){                                 # For Exporting (Excel
  
   "Name" => name,
   "Date" => date,
-  "E-Mail" => email,} 
+  "E-Mail" => email,
+  "Dept" => dept,
+  "Team" => team_name,} 
 
 end
 
