@@ -56,6 +56,7 @@ def self.import(file)                                  # For importing
     @person.email = row["E-Mail"]
     @person.dept = row["Dept"]
     @person.team_name = row["Team"]
+    @person.template_id ="1"
      if @person.save
 
      else
