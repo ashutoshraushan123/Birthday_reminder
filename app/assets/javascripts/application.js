@@ -146,7 +146,7 @@ $("#submit").click(function() {
 });
 
 
-var img ='<img src="/assets/Excel_00.png"/>';
+var img ='<img src="/assets/Excel_01.png"/>';
 
 $("#blob_1").popover({ title: 'Format for Excel sheet (.xls / .xlsx)', content: img , trigger:'hover',html: true });
 
@@ -195,7 +195,7 @@ $("#department_dept").focus(function() {
             },
              error: function(newdate){
                console.log(newdate)
-               $("#show").html("<b>No Birthday Today</b>")
+               $("#show").html("<b>No Birthday This Day</b>")
              }
           })
         }
@@ -217,6 +217,7 @@ $("#department_dept").focus(function() {
                 if (data == "") {
                    data ="No teams"
                     $("#person_team_name").append( $('<option value="'+""+'">'+"No team"+'</option>'));
+                     $("#person_team_name").append( $('<option value="'+"All"+'">'+"All"+'</option>'));
                 }
                 else {
                     // $("#person_team_name").val(data);

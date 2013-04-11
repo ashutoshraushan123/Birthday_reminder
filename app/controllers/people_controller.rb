@@ -41,12 +41,13 @@ class PeopleController < ApplicationController
     @dept = Department.all
     @team = Team.all
     @u=Array.new
-     
+      @u << "All"
      @dept.each do |d|
       
         @u.push(d.dept)
 
      end
+
   logger.info "....................#{@u.inspect}.........."
     respond_to do |format|
       format.html # new.html.erb
@@ -163,11 +164,15 @@ class PeopleController < ApplicationController
     @team_name=[]
      @team =Team.where("depart=?",params[:dept])
       #@team = Team.find_by_depart(params[:dept])
-      @team.each do|t|
+      # @team_name<<"All"
+      # @team.each do|t|
          
-        @team_name << t.team_name
-      end
-       #logger.info"DDDDDDDDDDDDDDDDDDDDDDd#{@team_name.inspect}"
+      #   @team_name << t.team_name
+      # end
+       # t={:id=>"all", :value=>"all"}
+       # @team.push(t)
+       @team.where(:id => 'all').first_or_create(:team_name => 'all')
+       logger.info"DDDDDDDDDDDDDDDDDDDDDDd#{@team.inspect}"
        respond_to do |format|
          format.json{render json: @team.collect{|t| [t.id, t.team_name]}}
        end
