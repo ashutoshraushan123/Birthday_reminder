@@ -56,6 +56,14 @@ gem 'rmagick'
 
 gem 'rubyzip'
 
+
+gem 'factory_girl_rails', '>= 3.5.0', group: [:development, :test]
+gem 'shoulda-matchers',               group: [:development, :test]
+gem 'email_spec', '>= 1.2.1',         group: :test
+gem 'therubyracer',                   group: :assets, :platform => :ruby
+gem 'vcr',                            group: [:development, :test]
+gem 'fakeweb',                        group: [:development, :test]
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
