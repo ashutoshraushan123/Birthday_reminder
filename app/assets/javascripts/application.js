@@ -195,7 +195,7 @@ $("#department_dept").focus(function() {
             },
              error: function(newdate){
                console.log(newdate)
-               $("#show").html("<b>No Birthday Today</b>")
+               $("#show").html("<b>No Birthday This Day</b>")
              }
           })
         }

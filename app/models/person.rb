@@ -44,13 +44,18 @@ def self.import(file)                                  # For importing
   header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
     row = Hash[[header, spreadsheet.row(i)].transpose]
-    #logger.info"..................#{row.inspect}............." 
+    logger.info"..................#{row.inspect}............." 
     @person = Person.find_by_id(row["id"]) ||Person.new
-
+    logger.info"++++++++++++++++++++++#{row["Name"].to_s.inspect}"
+     logger.info"++++++++++++++++++++++#{row["Date"].inspect}"
+      logger.info"++++++++++++++++++++++#{row["E-Mail"].inspect}"
+       logger.info"++++++++++++++++++++++#{row["Dept"].inspect}"
+        logger.info"++++++++++++++++++++++#{row["Team"].inspect}"
     @person.name = row["Name"].to_s
     @person.date = row["Date"]
-    @person.email = row["Email"]
-       
+    @person.email = row["E-Mail"]
+    @person.dept = row["Dept"]
+    @person.team_name = row["Team"]
      if @person.save
 
      else
