@@ -124,17 +124,59 @@ class PeopleController < ApplicationController
  def  find_birthday
 
        @people = Person.find(:all, :conditions => ["DAY(date) = ? AND MONTH(date) = ?", Date.today.day, Date.today.month])
-       @notification = Person.where('DAY(date) <> ? OR MONTH(date) <> ?', Date.today.day, Date.today.month)
-       
+       @dept=@people.group_by{|t| t.dept}
+       @dept_keys=@dept.keys
+        @dept_keys.each do |dept|
+           if (dept=="All")
+              @bday_people = Person.find(:all, :conditions => ["dept=? AND DAY(date) = ? AND MONTH(date) = ?",dept,Date.today.day, Date.today.month])
+              @notification = Person.find(:all, :conditions =>['DAY(date) <> ? OR MONTH(date) <> ?',Date.today.day, Date.today.month])
+                 @notification.each do|n| 
+                   UserMailer.notification_email(n,@bday_people).deliver
+                 end
+           elsif (dept=="")
+
+           else
+              @team = @people.group_by{|t| t.team_name}
+              @team_keys=@team.keys
+      
+              @team_keys.each do |l|
+                  if(l=="All")
+                     @bday_people =Person.find(:all, :conditions => ["team_name=? AND DAY(date) = ? AND MONTH(date) = ?",l,Date.today.day, Date.today.month])
+                     @notification = Person.find(:all, :conditions =>['dept=? AND DAY(date) <> ? OR MONTH(date) <> ?',dept,Date.today.day, Date.today.month])
+                     @dept_all = Person.find(:all, :conditions =>['dept=? AND DAY(date) <> ? OR MONTH(date) <> ?',"All",Date.today.day, Date.today.month])
+                        @notification.each do|n| 
+                           UserMailer.notification_email(n,@bday_people).deliver
+                        end
+                        @dept_all.each do|n| 
+                           UserMailer.notification_email(n,@bday_people).deliver
+                        end
+
+                  elsif(l=="")
+                  else
+                      @bday_people =Person.find(:all, :conditions => ["team_name=? AND DAY(date) = ? AND MONTH(date) = ?",l,Date.today.day, Date.today.month])
+                      @notification = Person.find(:all, :conditions =>['team_name=? AND DAY(date) <> ? OR MONTH(date) <> ?',l,Date.today.day, Date.today.month])
+                        @dept_all= Person.find(:all, :conditions =>['dept=? AND DAY(date) <> ? OR MONTH(date) <> ?',"All",Date.today.day, Date.today.month])
+                       @notification.each do|n| 
+                          UserMailer.notification_email(n,@bday_people).deliver
+                       end
+                       logger.info"*******************************#{@dept_all.inspect}*"
+                       @dept_all.each do|n| 
+                          UserMailer.notification_email(n,@bday_people).deliver
+                       end
+                  end
+               end
+
+
+            end
+
+
+        end
         p=@people.count
 
         @people.each do |e|
-            UserMailer.welcome_email(e).deliver
+           UserMailer.welcome_email(e).deliver
         end
        
-        @notification.each do|n| 
-           UserMailer.notification_email(n,@people).deliver
-        end
         redirect_to "/people" 
      
   end
@@ -161,18 +203,7 @@ class PeopleController < ApplicationController
   end
 
    def team_count
-    @team_name=[]
      @team =Team.where("depart=?",params[:dept])
-      #@team = Team.find_by_depart(params[:dept])
-      # @team_name<<"All"
-      # @team.each do|t|
-         
-      #   @team_name << t.team_name
-      # end
-       # t={:id=>"all", :value=>"all"}
-       # @team.push(t)
-       @team.where(:id => 'all').first_or_create(:team_name => 'all')
-       logger.info"DDDDDDDDDDDDDDDDDDDDDDd#{@team.inspect}"
        respond_to do |format|
          format.json{render json: @team.collect{|t| [t.id, t.team_name]}}
        end

@@ -222,6 +222,7 @@ $("#department_dept").focus(function() {
                 else {
                     // $("#person_team_name").val(data);
                      jQuery.each(data,function(i, v) {
+                       $("#person_team_name").append( $('<option value="'+"All"+'">'+"All"+'</option>'));
                      $('#person_team_name').append( $('<option value="'+ v[1] +'">'+v[1]+'</option>'));
                      });
                 }

@@ -12,6 +12,7 @@ class UserMailer < ActionMailer::Base
   def notification_email(user,p)
   	@user = user
   	@notice=p
+    logger.info"======================#{@notice.inspect}"
   	mail(:to => user.email, :subject => "Birthday Notifications")
    end
 

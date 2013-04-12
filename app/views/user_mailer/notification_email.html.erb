@@ -6,6 +6,7 @@
   <% @notice.each do |e| %>
    <tr>
     <td> <%= e.name %></td>
+     <td> <%= e.email %></td>
     <td> <%= image_tag e.avatar.url(:thumb) %></td> 
    </tr>
   <% end %>
