@@ -63,6 +63,7 @@ class PeopleController < ApplicationController
     @team = Team.all
     @u=Array.new
      
+      @u << "All"
      @dept.each do |d|
       
         @u.push(d.dept)
