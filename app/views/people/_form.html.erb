@@ -5,14 +5,14 @@
 <%= simple_form_for @person, :html => { :multipart => true } do |f| %>
 
   
- 
-  <%= f.input :name %>
+  <p id="valid_5" class="text-error">  !Can't be blank</p>
+  <%= f.input :name,:required =>'true'%>
   <%= f.input :date ,:start_year => Date.today.year - 17,:end_year=>1970,
   :order => [ :day, :month, :year] %>
   <%#= f.input :date ,:start_year => Date.today.year ,:end_year=>1970,
   :order => [ :day, :month, :year] %>
-
-  <%= f.input :dept, collection: @u, prompt: "Select department" %>
+  <p id="valid_6" class="text-error">  Select one!!!</p>
+  <%= f.input :dept, collection: @u, prompt: "Select department",:required =>'true' %>
    <%= f.input :team_name, collection: [] ,prompt: "Select Team" %>
   <p id="valid" class="text-error">  !!!Sorry,Invalid Email</p>
   <%= f.input :email, :required =>'true' %>
@@ -74,17 +74,17 @@
 
     <%= submit_tag 'Submit' ,:id => 'submit',:class =>"btn btn-primary"%><br/><br/>
   
-<% end -%>
+<% end %>
 
-<%#= form_for :dump, :url=>  import_csv_index_path, :html => { :multipart => true } do |f| %>
+<%#= form_for :dump, :url=>  upload_images_folder_upload_index_path, :html => { :multipart => true } do |f| %>
 
-<!--  <p id="valid_3" class="text-error">  !!!Sorry,Invalid file format.Please mouseover help option</p>
+ <!--  <p id="valid_3" class="text-error">  !!!Sorry,Invalid file format.Please mouseover help option</p> -->
     <%#= f.label :'Select an Image Folder:'  %>
-    <%#= f.file_field :file %>
-    <i href="#" id="blob_1" class="icon-info-sign" rel="popover" style="margin-top: 300px"></i><br/>
-    <%#= submit_tag 'Submit' ,:id => 'submit',:class =>"btn btn-primary"%><br/><br/>
-  
-<#% end -%>
- -->
+    <%#= f.file_field :file ,:class=>"ashu"%>
+    <!-- <i href="#" id="blob_1" class="icon-info-sign" rel="popover" style="margin-top: 300px"></i><br/> -->
+    <%#= submit_tag 'Submit' ,:id => 'submit',:class =>"btn btn-primary"%><!-- <br/><br/>
+   -->
+<%#end %>
+ 
 </p>
 

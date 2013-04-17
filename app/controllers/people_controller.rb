@@ -41,7 +41,7 @@ class PeopleController < ApplicationController
     @dept = Department.all
     @team = Team.all
     @u=Array.new
-      @u << "All"
+      # @u << "ALL"
      @dept.each do |d|
       
         @u.push(d.dept)
@@ -63,7 +63,7 @@ class PeopleController < ApplicationController
     @team = Team.all
     @u=Array.new
      
-      @u << "All"
+      # @u << "All"
      @dept.each do |d|
       
         @u.push(d.dept)
@@ -96,6 +96,12 @@ class PeopleController < ApplicationController
   def update
     @person = Person.find(params[:id])
     @person.template_id =params[:template]
+     @u=Array.new
+     @dept.each do |d|
+      
+        @u.push(d.dept)
+
+      end
 
     respond_to do |format|
       if @person.update_attributes(params[:person])

@@ -91,13 +91,29 @@ $("#r1").click(function(){
 
  });
 
-
+ $("#valid_5").hide();
+ $("#valid_6").hide();
 $("#button").click(function() {
 
+  var name = $("#person_name").val();
+  var dept = $("#person_dept").val();
   var email = $("#person_email").val();
   var img = $("#person_avatar").val();
+  
+
+  if(name == null || name == "")
+  {
+    $("#valid_5").show();
+      return false;
+  }
+
+  else if(dept== null || dept == "")
+  {
+    $("#valid_6").show();
+      return false;
+  }
    
-  if (email == null || email == "" || !email.match(/^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/))
+  else if (email == null || email == "" || !email.match(/^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/))
  
     {
       $("#valid").show();
@@ -125,6 +141,11 @@ $("#person_email").focus(function() {
   $("#valid").hide();});
 $("#dump_file").focus(function() {
   $("#valid_2").hide();});
+$("#person_name").focus(function() {
+  $("#valid_5").hide();});
+$("#person_dept").focus(function() {
+  $("#valid_6").hide();});
+
 
 
 
@@ -146,6 +167,51 @@ $("#submit").click(function() {
 });
 
 
+$("#valid_4").hide();
+$("#valid_8").hide();
+$("#valid_9").hide();
+
+$("#team_submit").click(function(){
+
+  var team= $("#team_team_name").val();
+  var dept= $("#team_depart").val();
+ 
+
+  if(team=="")
+  {
+    $("#valid_4").show();
+    return false;
+  }
+  else if(team=="ALL")
+  {
+    $("#valid_8").show();
+    return false;
+  }
+  else if(dept== null || dept == "")
+  {
+    $("#valid_9").show();
+      return false;
+  }
+  else
+  {
+    return true;
+  }
+
+
+});
+
+
+
+$('#department_dept').blur(function() {
+    $(this).val($(this).val().toUpperCase());
+});
+
+$('#team_team_name').blur(function() {
+    $(this).val($(this).val().toUpperCase());
+
+});
+
+
 var img ='<img src="/assets/Excel_01.png"/>';
 
 $("#blob_1").popover({ title: 'Format for Excel sheet (.xls / .xlsx)', content: img , trigger:'hover',html: true });
@@ -154,6 +220,7 @@ $("#blob").popover({ title: 'File fomat :', content: ".jpg , .jpeg , .png , .bmp
 
 
 $("#valid_3").hide();
+$("#valid_7").hide();
 
 $("#dept_submit").click(function() {
 
@@ -164,6 +231,11 @@ $("#dept_submit").click(function() {
       $("#valid_3").show();
       return false;
     }
+   else if( dept == "ALL")
+    {
+      $("#valid_7").show();
+      return false;
+    }
   else
     {
       return true;
@@ -171,7 +243,21 @@ $("#dept_submit").click(function() {
 });
 
 $("#department_dept").focus(function() {
-   $("#valid_3").hide();});
+   $("#valid_3").hide();
+   $("#valid_7").hide();
+   $(".error").hide();
+   $("#department_dept").val("");
+
+ });
+
+$("#team_team_name").focus(function() {
+   $("#valid_4").hide();
+   $(".error").hide();
+   $("#team_team_name").val("");
+   $("#valid_8").hide();
+   $("#valid_9").hide();
+
+ });
 
 
  $prev = null
@@ -217,12 +303,12 @@ $("#department_dept").focus(function() {
                 if (data == "") {
                    data ="No teams"
                     $("#person_team_name").append( $('<option value="'+""+'">'+"No team"+'</option>'));
-                     $("#person_team_name").append( $('<option value="'+"All"+'">'+"All"+'</option>'));
+                     // $("#person_team_name").append( $('<option value="'+"ALL"+'">'+"ALL"+'</option>'));
                 }
                 else {
                     // $("#person_team_name").val(data);
                      jQuery.each(data,function(i, v) {
-                       $("#person_team_name").append( $('<option value="'+"All"+'">'+"All"+'</option>'));
+                       // $("#person_team_name").append( $('<option value="'+"ALL"+'">'+"ALL"+'</option>'));
                      $('#person_team_name').append( $('<option value="'+ v[1] +'">'+v[1]+'</option>'));
                      });
                 }

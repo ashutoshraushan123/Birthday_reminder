@@ -67,3 +67,16 @@ div {
     list-style: square;
   }
 }
+.field_with_errors {
+    background-color: white;
+    display: table;
+    padding: 2px;
+}
+
+.simple_form .error {
+    clear: left;
+    color: #DD0000;
+    display: block;
+    font-size: 12px;
+    margin-left: 100px;
+}

@@ -3,9 +3,9 @@ class DepartmentsController < ApplicationController
   # GET /departments.json
   def index
 
-    newdate = params[:newdate].split("-")
-    @people = Person.where("DATE_FORMAT(date,'%d') = ? AND DATE_FORMAT(date,'%b') = ? AND dept=? ", newdate[0], newdate[1],dept)
-    #@departments = Department.all
+    #newdate = params[:newdate].split("-")
+    #@people = Person.where("DATE_FORMAT(date,'%d') = ? AND DATE_FORMAT(date,'%b') = ? AND dept=? ", newdate[0], newdate[1],dept)
+    @departments = Department.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @departments }

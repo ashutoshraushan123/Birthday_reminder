@@ -40,3 +40,6 @@ template = Template.create([{id:'1',html:'<html>
 </html>
 
 '}])
+
+department = Department.create([{id:'1' ,dept:'ALL'}]) 
+team = Team.create([{id:'1' ,team_name:'ALL'}]) 

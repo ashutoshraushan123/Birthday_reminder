@@ -85,6 +85,28 @@ def self.open_spreadsheet(file)                         # Importing method open_
 end
 
 
+def self.upload(file)
+ zipfile_name="#{file.original_filename}"
+ Zip::ZipFile::open(zipfile_name) do |zip|
+   logger.info "================#{file.inspect}============"
+ zip.each do |entry|
+   logger.info "**************************#{entry.inspect}"
+   next if entry.name =~ /__MACOSX/ or entry.name =~ /\.DS_Store/ or !entry.file?
+   logger.info "#{entryinspect}"
+   FileUtils::mkdir_p(File.dirname(entry.name)) # might want to check if it already exists    
+   @data = File.new("#{Rails.root.to_s}/tmp/#{entry.name}")
+ end
+end
+
+
+end
+
+
+def self.open_zipfolder(file)
+      # File.extname(file.original_filename)
+
+
+end
 
  # named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0 "} }
 

@@ -1,13 +1,13 @@
 <%= simple_form_for(@team) do |f| %>
-  <%= f.error_notification %>
+  <%#= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :team_name %>
-    <%#= f.input :dept_id %>
+     <p id="valid_4" class="text-error">  !Can't be blank</p>
+     <p id="valid_8" class="text-error">  has already been taken</p>
+
     <%= f.input :depart, collection: @u, prompt: "Select department" %>
+     <p id="valid_9" class="text-error"> Select one department</p>
   </div>
- <%= f.submit "Add Team" ,:id => 'team_submit'%>
- <!--  <div class="form-actions">
-    <%#= f.button :submit %>
-  </div> -->
+ <%= f.submit "Add Team" ,:id => 'team_submit',:class=>'btn'%>
 <% end %>

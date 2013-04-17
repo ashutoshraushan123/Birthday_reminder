@@ -1,0 +1,2 @@
+module ImagesFolderUploadHelper
+end

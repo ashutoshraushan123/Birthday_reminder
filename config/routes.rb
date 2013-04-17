@@ -32,6 +32,11 @@ BirthdayApp::Application.routes.draw do
      
    end
 
+  resources :images_folder_upload do
+    
+    collection{ post :upload } 
+
+   end
 
 # devise_scope :users do
 #  root to: "devise/sessions#new"
