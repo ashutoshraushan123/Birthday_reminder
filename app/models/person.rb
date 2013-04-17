@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   has_one :template
    #validates_attachment_content_type :avatar, :content_type => 'image/jpeg'
   #validates_attachment :avatar,:content_type => {:content_type => ['image/jpeg', 'image/png','image/gif','image/jpg','image/bmp']}  
-
+  validates :email, :uniqueness => true 
   validates_presence_of :email 
   validates_format_of :email, :with => /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/
  #validates_format_of :avatar,:with => /(\.bmp|\.png|\.jpg|\.jpeg|\.gif)$/
