@@ -15,7 +15,7 @@ template = Template.create([{id:'1',html:'<html>
  <table  border="1" >
 	    <tr>
 	    	<td>
-	    		<h2><em>Wishes On Your Brthday</em></h2>
+	    		<h2><em>Wishes On Your Birthday</em></h2>
 	    		<br/>
 	    		<br/>
 	
