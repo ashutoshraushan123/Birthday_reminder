@@ -4,7 +4,7 @@ class CsvController < ApplicationController
 	#Person.import(params[:dump][:file])
      @error = []
       @error = Person.import(params[:dump][:file])
-		logger.info "xxxx++++++++++++xxxx#{@error.inspect}"
+		# logger.info "xxxx++++++++++++xxxx#{@error.inspect}"
 		if @error.blank?
 			redirect_to people_path, notice: "Employees imported."
 		else
