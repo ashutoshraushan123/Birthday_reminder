@@ -14,7 +14,12 @@
   </head>
   <body>
   <%#= form_tag(:controller => "image", :action => "create", :method=>"post") do %>
+ <% if @people.blank? %>
+    
+     <em><%="No Employee Without Image" %></em>
+  
 
+  <% else %> 
     <% @people.each do |person| %>
      <tr >
       <td><%= person.name %></td>
@@ -22,6 +27,7 @@
       <td><%= file_field_tag :avatar ,:class => 'files', :name => person.id %></td>
       <td><canvas class="images" width="100" height="100"></canvas></td>
      </tr>
+   <% end %>
    <% end %>
   </body>
   </table>
