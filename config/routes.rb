@@ -1,9 +1,11 @@
 BirthdayApp::Application.routes.draw do
  
-
-
   resources :teams
+  resources :thoughts do
 
+     collection{ post :import } 
+     
+   end
 
   resources :departments
 
