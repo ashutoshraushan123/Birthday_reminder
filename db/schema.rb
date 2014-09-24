@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20130417131108) do
 
   create_table "teams", :force => true do |t|
     t.string   "team_name"
-    t.integer  "dept_id"
+    t.string   "dept_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "department"
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(:version => 20130417131108) do
 
   create_table "templates", :force => true do |t|
     t.text     "html"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "thought_of_days", :force => true do |t|
+    t.text     "detail"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
